@@ -58,7 +58,6 @@ class _SurahListTileV3State extends State<SurahListTileV3> {
         downloadController.inProgressSurahs[widget.reciter.id
             .toString()]?[widget.chapter.id.toString()] ??
         0.0;
-    const greyColor = Colors.grey;
 
     bool isPlaying =
         audioManager.isPlaying && (widget.index == audioManager.playingChapterIndex) &&
@@ -93,7 +92,7 @@ class _SurahListTileV3State extends State<SurahListTileV3> {
         padding: const EdgeInsets.only(left: 5, top: 15, bottom: 15, right: 5),
         margin: const EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
-          color: context.colorScheme.surfaceContainerLow,
+          color: context.colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Row(
@@ -147,13 +146,13 @@ class _SurahListTileV3State extends State<SurahListTileV3> {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: (context.isFoldable ? 8 : 13).sp,
-                      color: context.colorScheme.onPrimaryContainer.withOpacity(.9),
+                      color: context.colorScheme.onSurface.withOpacity(.9),
                     ),
                   ),
                   Text(
                     widget.reciter.reciterName,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: greyColor, fontSize: (context.isFoldable ? 6 : 10).sp),
+                    style: TextStyle(color: Colors.grey, fontSize: (context.isFoldable ? 6 : 10).sp),
                   ),
                 ],
               ),
@@ -180,7 +179,7 @@ class _SurahListTileV3State extends State<SurahListTileV3> {
                           child: CircularProgressIndicator(
                             value: progress,
                             strokeWidth: 2,
-                            backgroundColor: greyColor,
+                            backgroundColor: Colors.grey,
                           ),
                         ),
                       ),
@@ -191,7 +190,7 @@ class _SurahListTileV3State extends State<SurahListTileV3> {
                         icon: SizedBox(
                           child: Icon(
                             size: 14,
-                            ReciterIconV3.close,
+                            Icons.close_rounded,
                             color: context.colorScheme.primaryFixed,
                           ),
                         ),
@@ -208,12 +207,12 @@ class _SurahListTileV3State extends State<SurahListTileV3> {
                             key: Key(
                               'downloaded_completed_key_${widget.index}',
                             ),
-                            ReciterIconV3.close,
+                            Icons.close_rounded,
                             color: context.colorScheme.primaryFixed,
                           )
                           : Icon(
                             key: Key('download_button_key_${widget.index}'),
-                            ReciterIconV3.download,
+                            Icons.download_rounded,
                             color: context.colorScheme.primaryFixed,
                             size: 22,
                           ),

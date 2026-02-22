@@ -93,7 +93,7 @@ class PlayerScreensController extends ChangeNotifier {
 
     showModalBottomSheet(
       context: context,
-      backgroundColor: context.isDark ? const Color(0xff1C1B23) : Colors.white,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
       ),
