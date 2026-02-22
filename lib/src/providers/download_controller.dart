@@ -334,7 +334,7 @@ class DownloadController extends ChangeNotifier {
       }
       // Clear Hive data
       await ReciterHiveManager().recitationsBox.put(
-        DownloadedRecitationPath,
+        downloadedRecitationPath,
         json.encode({}),
       );
 

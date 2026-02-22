@@ -232,6 +232,9 @@ class _DownloadedTabState extends State<DownloadedTab> {
                             ),
                       );
                     },
+                    style: TextButton.styleFrom(
+                      foregroundColor: context.colorScheme.error,
+                    ),
                     child: Text(context.tr.delete_all),
                   ),
                 ],

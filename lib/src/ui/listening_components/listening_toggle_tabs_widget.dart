@@ -101,21 +101,27 @@ class ListeningToggleButton extends StatelessWidget {
         height: 36,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: BoxDecoration(
-          color: isSelected ? context.colorScheme.primary : context.colorScheme.tertiaryContainer.withOpacity(0.15),
+          color: isSelected
+              ? context.colorScheme.primary
+              : context.colorScheme.primary.withOpacity(0.12),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           children: [
             SvgImageAsset(
               iconPath,
-              color: isSelected ? context.colorScheme.onSecondary : context.colorScheme.onPrimaryContainer,
+              color: isSelected
+                  ? context.colorScheme.onPrimary
+                  : context.colorScheme.primary,
             ),
             const SizedBox(width: 4),
             Text(
               title,
               style: context.textTheme.bodyMedium?.copyWith(
                 fontSize: 14,
-                color: isSelected ? context.colorScheme.onSecondary : context.colorScheme.onPrimaryContainer,
+                color: isSelected
+                    ? context.colorScheme.onPrimary
+                    : context.colorScheme.primary,
               ),
             ),
           ],

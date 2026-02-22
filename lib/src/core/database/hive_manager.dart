@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
-const String DownloadedRecitationPath = 'downloaded_recitations';
+const String downloadedRecitationPath = 'downloaded_recitations';
 
 class ReciterHiveManager extends ChangeNotifier {
   static final ReciterHiveManager _instance = ReciterHiveManager._internal();
@@ -47,20 +47,20 @@ class ReciterHiveManager extends ChangeNotifier {
         return true;
       } else {
         hiveData[reciterId]!.addAll(newData[reciterId]!);
-        recitationsBox.put(DownloadedRecitationPath, json.encode(hiveData));
+        recitationsBox.put(downloadedRecitationPath, json.encode(hiveData));
         notifyListeners();
         return true;
       }
     } else {
       hiveData[reciterId] = newData[reciterId];
-      recitationsBox.put(DownloadedRecitationPath, json.encode(hiveData));
+      recitationsBox.put(downloadedRecitationPath, json.encode(hiveData));
       notifyListeners();
       return true;
     }
   }
 
   String getDownloadedRecitation() {
-    return recitationsBox.get(DownloadedRecitationPath, defaultValue: '{}')
+    return recitationsBox.get(downloadedRecitationPath, defaultValue: '{}')
         as String;
   }
 
@@ -82,7 +82,7 @@ class ReciterHiveManager extends ChangeNotifier {
     if (hiveData!.containsKey(reciterId)) {
       if (hiveData[reciterId]!.toString().toLowerCase().contains(chapterId)) {
         hiveData[reciterId]!.remove(chapterId);
-        recitationsBox.put(DownloadedRecitationPath, json.encode(hiveData));
+        recitationsBox.put(downloadedRecitationPath, json.encode(hiveData));
         notifyListeners();
         Fluttertoast.showToast(
           msg: 'Recitation deleted successfully',

@@ -43,7 +43,7 @@ class _RecitorListTileState extends State<RecitorListTile> {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: isSelected ? context.colorScheme.primaryContainer : context.colorScheme.surfaceContainerLow,
+        color: isSelected ? context.colorScheme.primaryContainer : context.colorScheme.surface,
         borderRadius: BorderRadius.circular(12),
       ),
       padding: EdgeInsetsDirectional.only(start: 19, top: 15, bottom: 15),
@@ -58,19 +58,19 @@ class _RecitorListTileState extends State<RecitorListTile> {
                   maxLines: 2,
                   style: TextStyle(
                     fontSize: (context.isFoldable ? 8 : 13).sp,
-                    color: isSelected ? context.colorScheme.onPrimaryContainer : context.colorScheme.onPrimaryContainer.withOpacity(.9),
+                    color: isSelected ? context.colorScheme.onPrimaryContainer : context.colorScheme.onSurface.withOpacity(.9),
                   ),
                 ),
                 const SizedBox(height: 2),
                 DefaultTextStyle(
                   style: TextStyle(
-                      color: context.colorScheme.secondary.withOpacity(.70),
+                      color: context.colorScheme.onSurface.withOpacity(.70),
                       fontSize: (context.isFoldable ? 6 : 9).sp,
                       fontFamily: context.getFontFamily()),
                   child: Row(
                     children: [
                       Flexible(
-                        child: Text(widget.recitor.style ?? '', overflow: TextOverflow.ellipsis, maxLines: 2),
+                        child: Text(widget.recitor.style ?? '', overflow: TextOverflow.ellipsis, maxLines: 2,),
                       ),
                     ],
                   ),
